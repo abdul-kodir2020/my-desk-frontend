@@ -9,6 +9,8 @@ import Main from './components/Main';
 import Projects from './components/Projects';
 import UserContextProvider from './providers/UserContextProvider';
 import Profile from './components/Profile';
+import AddProject from './components/AddProject';
+import Tasks from './components/Tasks';
 
 function App() {
   const navigate = useNavigate()
@@ -28,14 +30,17 @@ function App() {
 
 
       {/* Dashboard route */}
+      
       {
         (currentRoute !== '/login' && currentRoute !== '/register' && currentRoute !== '/forgot-password')?
         <UserContextProvider>
           <Dashboard>
             <Routes>
-              <Route path='/Dashboard' Component={Main}></Route>
-              <Route path='/Dashboard/projets' Component={Projects}></Route>
-              <Route path='/Dashboard/profile' Component={Profile}></Route>
+              <Route path='/dashboard' Component={Main}></Route>
+              <Route path='/dashboard/projets' Component={Projects}></Route>
+              <Route path='/dashboard/projets/ajouter' Component={AddProject}></Route>
+              <Route path='/dashboard/taches' Component={Tasks}></Route>
+              <Route path='/dashboard/profile' Component={Profile}></Route>
             </Routes>
           </Dashboard>
         </UserContextProvider>

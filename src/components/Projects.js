@@ -1,5 +1,6 @@
 import React from 'react'
 import ProjectList from './ProjectList'
+import { Link } from 'react-router-dom'
 
 function Projects() {
   return (
@@ -9,10 +10,9 @@ function Projects() {
                 <h4 className='fw-bold'>Projets</h4>
                 <p>Suivez tous vos projets de près.</p>
             </div>
-            <button type="button" class="btn btn-outline-primary" style={{height: 'min-content'}}>Ajouter un projet</button>
+            
         </div>
         <ProjectList/>
-        
     </div>
   )
 }

@@ -21,7 +21,7 @@ function NavBar() {
         <ul className='list-menu'>
           <li className='list-item'><Link to={'/dashboard'}><i class="bi bi-house"></i>  Tableau de bord</Link></li>
           <li className='list-item'><Link to={'/dashboard/projets'}><i class="bi bi-diagram-2"></i>  Projets</Link></li>
-          <li className='list-item'><Link><i class="bi bi-list-task"></i>  Tâches</Link></li>
+          <li className='list-item'><Link to={'/dashboard/taches'}><i class="bi bi-list-task"></i>  Tâches</Link></li>
         </ul>
         <br></br>
         <hr></hr>

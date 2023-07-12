@@ -115,6 +115,8 @@ nav{
   font-size: 1.4rem;
   color: rgb(87, 87, 87);
   transition: 0.2s color ease;
+  -webkit-text-stroke: 1px;
+
 
   
 }
@@ -124,6 +126,7 @@ nav{
   text-decoration: none;
   transform: translateY(50px);
   transition: 0.2s color ease;
+  font-weight: bold;
 
 }
 
@@ -166,7 +169,7 @@ nav{
   width: 90px;
   height: 90px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 5%;
 }
 
 .info-left .name{
@@ -183,4 +186,75 @@ nav{
 .info-right{
   width: 35%;
   height: min-content;
+}
+
+.test {
+  gap: calc(4% / 3)
+}
+
+.card-link {
+  width: 24%;
+  
+  color: black;
+  text-decoration: none;
+}
+
+.card-link h6{
+  transition: 0.3s color ease;
+}
+
+
+.card-link:hover h6{
+  color: rgb(78, 78, 255);
+}
+
+.card-project {
+  width: 100%;
+  border-radius: 0;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.icon-dev{
+  padding: 4px 12px;
+  font-size: 26px;
+  -webkit-text-stroke: 1px;
+  color: rgb(0, 94, 94);
+  background-color: rgb(196, 255, 255);
+}
+
+.icon-mobile{
+  padding: 4px 12px;
+  font-size: 26px;
+  -webkit-text-stroke: 1px;
+  color: rgb(94, 61, 0);
+  background-color: rgb(247, 208, 137);
+}
+
+.icon-design{
+  padding: 4px 12px;
+  font-size: 26px;
+  -webkit-text-stroke: 1px;
+  color: rgb(67, 0, 94);
+  background-color: rgb(233, 176, 255);
+}
+
+.icon-other{
+  padding: 4px 12px;
+  font-size: 26px;
+  -webkit-text-stroke: 1px;
+  color: rgb(236, 0, 0);
+  background-color: rgb(255, 183, 183);
+}
+
+.dots{
+  font-size: 25px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  height: 25px;
+}
+
+.text-desc{
+  font-size: 14px;
 }
