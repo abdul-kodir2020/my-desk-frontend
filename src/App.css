@@ -1,38 +1,186 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Lobster&family=Maven+Pro&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-family: 'Comfortaa', cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.login{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login-image{
+  height: 100%;
+  width: calc(100% - 550px);
+  background-color: black;
+  background-image: url('https://images.pexels.com/photos/3038740/pexels-photo-3038740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login-section{
+  width: 550px;
+  height: 100vh;
+  
+}
+
+.inlogin{
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 50px;
+  align-items: center;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.logo{
+  font-size: 35px;
+  font-weight: bold;
+  padding: 10px;
+  width: min-content;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid rgb(0, 0, 0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inlogin form{
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.dashboard{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(216, 222, 228);
+  display: flex;
+}
+
+nav{
+  height: 100%;
+  width: 300px;
+  background-color: white;
+  box-shadow: 2px 5px 5px rgb(211, 210, 210);
+}
+
+.section-right{
+  max-height: 100%;
+  width: calc(100% - 300px);
+  overflow-y: scroll;
+
+}
+
+.top-section{
+  height: 80px;
+  width: 100%;
+  background-color: rgb(252, 253, 255);
+  box-shadow: 2px 5px 5px rgb(216, 222, 228);
+}
+
+.button-menu{
+  background-color: transparent;
+  border: 0;
+  font-size: 30px;
+}
+
+.list-menu{
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+  padding: 0;
+  width: 100%;
+}
+
+.list-menu li{
+  list-style-type:none;
+  font-size: 0.9rem;
+  width: max-content;
+}
+
+.list-menu li:hover a{
+  color: rgb(78, 78, 255);
+  font-weight: bold;
+
+}
+
+.list-menu li:hover i{
+  color: rgb(78, 78, 255);
+}
+
+.list-menu li i{
+  font-size: 1.4rem;
+  color: rgb(87, 87, 87);
+  transition: 0.2s color ease;
+
+  
+}
+
+.list-menu li a{
+  color: rgb(87, 87, 87);
+  text-decoration: none;
+  transform: translateY(50px);
+  transition: 0.2s color ease;
+
+}
+
+.profil-link div{
+  display: flex;
+  gap: 10px;
+}
+
+.profil-link{
+  text-decoration: none;
+}
+
+.profil-link:hover h6{
+  color: rgb(78, 78, 255);
+}
+
+.profil-link h6{
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.2s color ease;
+}
+
+.profil-link p{
+  font-size: 0.8rem;
+}
+
+.pic{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.info-left{
+  width: 70%;
+  height: min-content;
+}
+
+.info-left img{
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.info-left .name{
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: 0.2s color ease;
+}
+
+.info-left .desc{
+  font-size: 1.2rem;
+  color: rgb(83, 87, 90);
+}
+
+.info-right{
+  width: 35%;
+  height: min-content;
 }
