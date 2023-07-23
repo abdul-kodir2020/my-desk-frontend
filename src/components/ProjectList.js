@@ -1,10 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import ProjectCard from './ProjectCard'
 import { Link } from 'react-router-dom'
 import ProjectsContext from '../contexts/ProjectsContext'
 
 function ProjectList() {
     const {projects, setProjects} = useContext(ProjectsContext)
+
+    useEffect(()=>{
+
+    },[setProjects])
 
   return (
     <>

@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Tasks from './Tasks'
 import UserContext from '../contexts/UserContext'
+import ProjectsContext from '../contexts/ProjectsContext'
 
 function OneProject() {
     const location = useLocation()
@@ -13,6 +14,7 @@ function OneProject() {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const {setTitle} = useContext(UserContext)
+    const {setProjects} = useContext(ProjectsContext)
     const apiUrl = process.env.REACT_APP_API_URL
 
     useEffect(()=>{
@@ -44,8 +46,9 @@ function OneProject() {
                 token: localStorage.token
             }
         })
-        .then(()=>{
+        .then((response)=>{
             navigate('/dashboard/projets')
+            setProjects(response.data.projects)
         })
         .catch((err)=>{
             console.log(err)

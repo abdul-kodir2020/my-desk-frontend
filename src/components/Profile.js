@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import UserContext from '../contexts/UserContext'
+const apiUrl = process.env.REACT_APP_API_URL
 
 function Profile() {
     const {user, setTitle} = useContext(UserContext)
@@ -13,7 +14,7 @@ function Profile() {
             <div className='bg-light info-left p-4 rounded shadow'>
                 <div className='d-flex justify-content-between align-items-center mb-4' >
                     <div className='d-flex gap-2' >
-                        <img alt='' src={(user.profilePic)?'http://localhost:5000/'+user?.profilePic:'https://img.freepik.com/photos-gratuite/rendu-3d-avatar-appel-zoom_23-2149556777.jpg?w=1060&t=st=1689109607~exp=1689110207~hmac=3f3eb5b6d171209bdbb0dc2301941f3bc28a6658660e9e459b465bf1edad1ae0'}></img>
+                        <img alt='' src={(user.profilePic)?apiUrl+'/'+user?.profilePic:'https://img.freepik.com/photos-gratuite/rendu-3d-avatar-appel-zoom_23-2149556777.jpg?w=1060&t=st=1689109607~exp=1689110207~hmac=3f3eb5b6d171209bdbb0dc2301941f3bc28a6658660e9e459b465bf1edad1ae0'}></img>
                         <div className='d-flex flex-column justify-content-center gap-0'>
                         <h6 className='p-0 m-0 name'>{user?.name?.split(' ')[0] + ' ' + user?.name?.split(' ')[1]}</h6>
                         <p className='m-0 desc'>{user?.role}</p>

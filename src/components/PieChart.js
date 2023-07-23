@@ -4,7 +4,7 @@ import {Pie} from 'react-chartjs-2';
 import {Chart} from 'chart.js/auto'
 import ProjectsContext from '../contexts/ProjectsContext';
 
-function PieChart(props) {
+function PieChart() {
     const {projects} = useContext(ProjectsContext)
     const [projectsOver, setProjectsOver] = useState(0)
 
@@ -21,7 +21,7 @@ function PieChart(props) {
     
               datasets: [{
                 label: '',
-                data: [(projectsOver / projects?.length) * 100, (100 - (projectsOver / projects?.length) * 100)],
+                data: [((projects.length)?(projectsOver / projects?.length) * 100 : 0),((projects.length)?(100 - (projectsOver / projects?.length) * 100) : 100)],
                 backgroundColor: [
                   'rgb(247, 208, 137)',
                   'rgb(223, 223, 223)',

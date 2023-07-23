@@ -88,6 +88,7 @@ function Main() {
             <hr className='mt-2'></hr>
             <div class="list-group w-100">
             {
+              (projectsThree.length)?
               projectsThree.map((projet)=>(
                 <Link to={'/dashboard/projets/'+projet?._id} className="list-group-item list-group-item-action d-flex align-items-center gap-2">
                   {
@@ -119,8 +120,13 @@ function Main() {
                 <i class="bi bi-arrow-right-square-fill ms-auto"></i>
                 </Link>
               ))
+              :<p className='text-center fw-bold text-muted mb-0'>Aucun projet</p>
             }
-            <Link to={'/dashboard/projets'} className='text-center mt-2 text-dark'>Voir tous les projets</Link>
+            {
+              (projectsThree.length)?
+              <Link to={'/dashboard/projets'} className='text-center mt-2 text-dark'>Voir tous les projets</Link>
+              :null
+            }
             </div>
            
             

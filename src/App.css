@@ -366,6 +366,10 @@ nav{
   width: calc(48% + (4% / 3));
 }
 
+.feature-list{
+  height: min-content;
+}
+
 @media(width < 1200px){
   nav{
     width: 0px;
