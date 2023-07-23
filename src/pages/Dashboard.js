@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from '../components/NavBar'
 import TopSection from '../components/TopSection'
 
-function Dashboard({children},props) {
+function Dashboard({children}) {
   return (
     <div className='dashboard'>
         <NavBar/>
