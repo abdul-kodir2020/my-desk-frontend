@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react'
 import ProjectList from './ProjectList'
-import { Link } from 'react-router-dom'
 import UserContext from '../contexts/UserContext'
 
 function Projects() {

@@ -24,7 +24,7 @@ function ProjectContextProvider({children}) {
 
       getProjects()
       
-  },[setProjects])
+  },[setProjects,apiUrl])
 
   return (
     <ProjectsContext.Provider value={{projects, setProjects}}>

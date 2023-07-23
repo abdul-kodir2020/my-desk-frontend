@@ -304,8 +304,10 @@ nav{
 
 }
 
-.task-component-nav a{
+.task-component-nav button{
   text-decoration: none;
+  background-color: transparent;
+  border: none;
 }
 
 .active-nav{

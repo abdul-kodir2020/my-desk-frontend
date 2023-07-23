@@ -13,12 +13,13 @@ function Main() {
 
   useEffect(()=>{
     setProjectsThree(projects.slice(0,3))
+    setProjectsOver(0)
     projects?.forEach(project => {
-      if(project.over) setProjectsOver(projectsOver + 1)
+      if(project.over) setProjectsOver(projectsOver=>projectsOver + 1)
     });
 
     setTitle('Tableau de bord')
-  },[projects])
+  },[projects,setTitle])
 
   return (
     <div className='main pt-5'>

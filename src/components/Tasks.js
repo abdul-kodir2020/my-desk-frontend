@@ -20,7 +20,7 @@ function Tasks(props) {
 
   useEffect(()=>{
     const getTasks = async()=>{
-      await axios.get(apiUrl+'/api/task/all/'+props?.projectId,{
+      await axios.get(apiUrl+'/api/task/all/'+props.projectId,{
         headers: {
             token: localStorage.token
         }
@@ -64,7 +64,7 @@ function Tasks(props) {
       document.getElementById('buttonDelete').disabled = false
     }
 
-  },[tasksChecked])
+  },[tasksChecked,apiUrl,props.projectId])
 
   const handleClick = (e)=>{
     const boutons = document.querySelectorAll('.task-component-nav li')
@@ -146,9 +146,9 @@ function Tasks(props) {
           <div className='rounded bg-light shadow border task-component' style={{height: 'min-content'}}>
             <div className='px-3 border-bottom'>
               <ul className='task-component-nav'>
-                <li className='active-nav'><a type='button' className='text-muted' id='all' onClick={handleClick}>Tous ({allTasks.length})</a></li>
-                <li><a type='button' className='text-muted' id='critical' onClick={handleClick}>Urgents ({criticalTasks.length})</a></li>
-                <li><a type='button' className='text-muted' id='over' onClick={handleClick}>Terminés ({overTasks.length})</a></li>
+                <li className='active-nav'><button type='button' className='text-muted' id='all' onClick={handleClick}>Tous ({allTasks.length})</button></li>
+                <li><button type='button' className='text-muted' id='critical' onClick={handleClick}>Urgents ({criticalTasks.length})</button></li>
+                <li><button type='button' className='text-muted' id='over' onClick={handleClick}>Terminés ({overTasks.length})</button></li>
               </ul>
             </div>
             {

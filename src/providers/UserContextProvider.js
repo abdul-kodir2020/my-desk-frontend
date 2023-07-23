@@ -20,7 +20,7 @@ function UserContextProvider({children}) {
         }
         getUser()
         console.log(apiUrl)
-    },[])
+    },[apiUrl])
 
   return (
     <UserContext.Provider value={{user, setUser, title, setTitle}}>

@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import ProjectCard from './ProjectCard'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import ProjectsContext from '../contexts/ProjectsContext'
 

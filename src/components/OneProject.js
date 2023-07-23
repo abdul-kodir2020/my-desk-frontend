@@ -34,7 +34,7 @@ function OneProject() {
 
         getProject()
         setTitle('Mon projet')
-    },[setProject])
+    },[setProject,apiUrl,projectId,setTitle])
 
     const handleDelete = async(e)=>{
         e.preventDefault()

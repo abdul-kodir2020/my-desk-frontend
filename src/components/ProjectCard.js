@@ -32,7 +32,7 @@ function ProjectCard(props) {
         }
 
         getTasks()
-    },[])
+    },[apiUrl,props.projet?._id])
 
     const handleClick = async(e)=>{
         e.preventDefault()
@@ -84,7 +84,7 @@ function ProjectCard(props) {
                     </button>
                     <ul class="dropdown-menu">
                         <li><button class="dropdown-item text-danger" name={props.projet?._id} onClick={handleClick}>Supprimer</button></li>
-                        <li><a class="dropdown-item" href="#">Voir les détails</a></li>
+                        <li><button class="dropdown-item">Voir les détails</button></li>
                     </ul>
                 </div>
             </div>

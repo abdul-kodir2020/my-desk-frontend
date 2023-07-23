@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {Pie} from 'react-chartjs-2';
-import {Chart as Chart} from 'chart.js/auto'
+// eslint-disable-next-line
+import {Chart} from 'chart.js/auto'
 import ProjectsContext from '../contexts/ProjectsContext';
 
 function PieChart(props) {
@@ -8,8 +9,9 @@ function PieChart(props) {
     const [projectsOver, setProjectsOver] = useState(0)
 
     useEffect(()=>{
+        setProjectsOver(0)
         projects?.forEach(project => {
-          if(project.over) setProjectsOver(projectsOver + 1)
+          if(project.over) setProjectsOver(projectsOver=>projectsOver + 1)
         });
     
       },[projects])
