@@ -83,7 +83,7 @@ function Main() {
               </div>
             </div>
           </div>
-          <div className='shadow rounded bg-white p-3 feature-list mb-sm-5'>
+          <div className='shadow rounded bg-white p-3 feature-list mb-5 mb-lg-0 mb-md-0'>
             <h6 className='fw-bold mb-0'>Projets récents</h6>
             <hr className='mt-2'></hr>
             <div class="list-group w-100">
