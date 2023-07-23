@@ -9,13 +9,14 @@ function Login() {
     const [message, setMessage] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+    const apiUrl = process.env.REACT_APP_API_URL
 
     const handleSubmit = async(e)=>{
         e.preventDefault()
         setShowSpinner(true)
 
 
-        await axios.post('http://localhost:5000/api/user/login',{
+        await axios.post(apiUrl+'/api/user/login',{
             email: email,
             password: password
         }).then(response=>{

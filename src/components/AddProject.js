@@ -1,5 +1,6 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import ProjectsContext from '../contexts/ProjectsContext'
 
 function AddProject() {
     const [success, setSuccess] = useState(false)
@@ -8,11 +9,13 @@ function AddProject() {
     const [name,setName] = useState('')
     const [description,setDescription] = useState('')
     const [type, setType] = useState('Application web')
+    const {projects,setProjects} = useContext(ProjectsContext)
+    const apiUrl = process.env.REACT_APP_API_URL
 
     const handleSubmit = async(e)=>{
         e.preventDefault()
 
-        await axios.post('http://localhost:5000/api/project',{
+        await axios.post(apiUrl+'/api/project',{
             type: type,
             description: description,
             name: name
@@ -27,6 +30,7 @@ function AddProject() {
             setType('Application web')
             setSuccess(true)
             setError(false)
+            setProjects([response.data.projectCreated, ...projects])
 
         })
         .catch((err)=>{
@@ -57,12 +61,12 @@ function AddProject() {
             :null
         }
 
-            <div class="row mb-4">
-                <div class="col">
+            <div class="row ">
+                <div class="col-12 col-lg-6 mb-4">
                     <label for="" class="form-label">Titre du projet</label>
                     <input type="text" class="form-control" value={name} onChange={(e)=>setName(e.target.value)} required/>
                 </div>
-                <div class="col">
+                <div class="col-12 col-lg-6 mb-4">
                     <label for="" class="form-label">Type du projet</label>
                     <select class="form-select" aria-label="Default select example" value={type} onChange={(e)=>setType(e.target.value)}>
                         <option selected value="Application web">Application web</option>

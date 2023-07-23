@@ -15,6 +15,7 @@ function Register() {
     const [password, setPassword] = useState('')
     const [repeatPassword, setRepeatPassword] = useState('')
     const navigate = useNavigate()
+    const apiUrl = process.env.REACT_APP_API_URL
 
     const handleChange = (e)=>{
         e.preventDefault()
@@ -25,7 +26,7 @@ function Register() {
         e.preventDefault()
         setShowSpinner(true)
         
-        await axios.post('http://localhost:5000/api/user/register',{
+        await axios.post(apiUrl+'/api/user/register',{
             name: name,
             email: email,
             password: password,
@@ -77,11 +78,11 @@ function Register() {
                         <input type="email" class="form-control" id="exampleFormControlInput1" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
                     </div>
                     <div className='row'>
-                        <div className='mb-3 col-6'>
+                        <div className='mb-3 col-12 col-md-6 col-lg-6'>
                             <label for="inputPassword5" class="form-label">Mot de passe*</label>
                             <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
                         </div>
-                        <div className='mb-3 col-6'>
+                        <div className='mb-3 col-12 col-md-6 col-lg-6'>
                             <label for="inputPassword5" class="form-label">Repetez le mot de passe*</label>
                             <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock" value={repeatPassword} onChange={(e)=>setRepeatPassword(e.target.value)} required/>
                         </div>

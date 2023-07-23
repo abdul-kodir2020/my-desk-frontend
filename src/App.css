@@ -65,17 +65,17 @@ nav{
   width: 300px;
   background-color: white;
   box-shadow: 2px 5px 5px rgb(211, 210, 210);
+  transition: 0.1s all ease;
 }
 
 .section-right{
   max-height: 100%;
   width: calc(100% - 300px);
   overflow-y: scroll;
-
 }
 
 .top-section{
-  height: 80px;
+  height: 70px;
   width: 100%;
   background-color: rgb(252, 253, 255);
   box-shadow: 2px 5px 5px rgb(216, 222, 228);
@@ -90,7 +90,6 @@ nav{
 .list-menu{
   display: flex;
   flex-direction: column;
-  gap:15px;
   padding: 0;
   width: 100%;
 }
@@ -98,36 +97,58 @@ nav{
 .list-menu li{
   list-style-type:none;
   font-size: 0.9rem;
-  width: max-content;
+  width: 100%;
+  padding: 16px 0px;
+  transition: 0.2s ease all;
 }
 
 .list-menu li:hover a{
   color: rgb(78, 78, 255);
-  font-weight: bold;
+}
 
+.list-menu li:hover{
+  background-color: rgb(235, 235, 235);
 }
 
 .list-menu li:hover i{
   color: rgb(78, 78, 255);
 }
 
+.list-menu li:hover span{
+  color: rgb(78, 78, 255);
+}
+
 .list-menu li i{
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: rgb(87, 87, 87);
   transition: 0.2s color ease;
-  -webkit-text-stroke: 1px;
-
-
-  
+  -webkit-text-stroke: 0.2px;
 }
 
 .list-menu li a{
   color: rgb(87, 87, 87);
   text-decoration: none;
-  transform: translateY(50px);
   transition: 0.2s color ease;
   font-weight: bold;
+  display:flex;
+  align-items: center;
+  gap: 11px;
+}
 
+.active{
+  background-color: rgb(235, 235, 235);
+}
+
+.active a{
+  color: rgb(78, 78, 255) !important;
+}
+
+.active i{
+  color: rgb(78, 78, 255) !important;
+}
+
+.active span{
+  color: rgb(78, 78, 255) !important;
 }
 
 .profil-link div{
@@ -257,4 +278,263 @@ nav{
 
 .text-desc{
   font-size: 14px;
+}
+
+.info-project{
+  width: min-content;
+  min-width: 50%;
+}
+
+.task-component{
+  min-width: 70%;
+  width: min-content;
+}
+
+.task-component-nav{
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.task-component-nav li{
+  list-style-type: none;
+  padding: 10px 0px;
+  
+
+}
+
+.task-component-nav a{
+  text-decoration: none;
+}
+
+.active-nav{
+  position: relative;
+  height: 100%;
+}
+
+.active-nav a{
+  font-weight: bold;
+  color: black !important;
+}
+
+.active-nav::after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+  background: #000;
+}
+
+.dash-feature{
+  gap: calc(4% / 3);
+}
+
+.dash-feature > div{
+  width: 24%;
+}
+
+.label {
+ 
+  width: 150px;
+  height: 150px;
+  background: #FFD166;
+}
+
+
+.label::after {
+  content: "";
+  position: absolute;
+
+  width: 65px;
+  height: 32.5px;
+  border: 10px red solid;
+  border-bottom: 0;
+  border-radius: 32.5px 32.5px 0 0;
+}
+
+.feature-2{
+  gap: calc(4% / 3);
+}
+
+.feature-2 div{
+  width: calc(48% + (4% / 3));
+}
+
+@media(width < 1200px){
+  nav{
+    width: 0px;
+    position: absolute;
+    z-index: 3;
+    overflow: hidden;
+  }
+
+  .section-right{
+    width: calc(100% - 0px);
+  }
+
+  .container{
+    padding: 0px 15px !important;
+    max-width: 100vw !important;
+  }
+
+  .test {
+    gap: calc(4% / 2)
+  }
+  
+  .card-link {
+    width: 32%;
+    
+    color: black;
+    text-decoration: none;
+  }
+
+  .button-menu{
+    display: block !important;
+  }
+}
+
+@media(width < 790px){
+  .test {
+    gap: calc(2%)
+  }
+  
+  .card-link {
+    width: 49%;
+    
+    color: black;
+    text-decoration: none;
+  }
+
+  .dash-feature{
+    gap: 1%;
+    flex-wrap: wrap;
+  }
+
+  .dash-feature > div{
+    width: 49.5%;
+  }
+
+  .feature-2{
+    gap: 15px;
+    flex-direction: column;
+  }
+
+  .feature-2 div{
+    width: 100%;
+  }
+
+  .info-project{
+    flex-grow: 1;
+  }
+
+  .task-buttons{
+    width: min-content;
+  }
+
+  .task-buttons span{
+    display: none;
+  }
+
+  .task-component{
+    flex-grow: 1;
+  }
+
+  .info-section{
+    flex-direction: column;
+  }
+
+  .info-section > div{
+    width: 100%;
+  }
+
+  .task-component-nav{
+ 
+    justify-content: space-between;
+   
+  }
+
+  .login{
+    flex-direction: column;
+  }
+
+  .login-image{
+    width: 100%;
+    max-height: 30%;
+  }
+
+  .login-section{
+    width: 100%;
+  }
+  
+}
+
+@media(width < 481px){
+  .test {
+    gap: 0
+  }
+  
+  .card-link {
+    width: 100%;
+    
+    color: black;
+    text-decoration: none;
+  }
+
+  .dash-feature{
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .dash-feature > div{
+    width: 100%;
+  }
+
+  .chart-container{
+    flex-direction: column;
+  }
+
+  .info-project{
+    width: 100%;
+  }
+
+  .container-button{
+    width: 100%;
+    flex-direction: row !important;
+  }
+
+  .container-button button{
+    flex-grow: 1;
+  }
+
+  .tasks{
+    flex-direction: column-reverse;
+  }
+
+  .task-component{
+    width: 100%;
+  }
+
+  .task-buttons{
+    display: flex;
+    width: 100%;
+  }
+
+  .task-buttons button{
+    display: flex;
+    justify-content: center;
+  }
+
+  .task-component-nav li{
+    font-size: 15px;
+  }
+}
+
+@media(width < 361px){
+  .task-component-nav li{
+    font-size: 11px;
+  }
 }

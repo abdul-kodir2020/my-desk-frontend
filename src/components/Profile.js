@@ -1,12 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import UserContext from '../contexts/UserContext'
 
 function Profile() {
-    const {user} = useContext(UserContext)
+    const {user, setTitle} = useContext(UserContext)
+    useEffect(()=>{
+        setTitle('Mon profil')
+    })
 
   return (
     <div className='profile pt-5'>
-        <h4 className='fw-bold'>Mes informations</h4>
         <div className='info-section d-flex gap-4'>
             <div className='bg-light info-left p-4 rounded shadow'>
                 <div className='d-flex justify-content-between align-items-center mb-4' >
@@ -24,7 +26,7 @@ function Profile() {
                 <h5 className='fw-bold'>A propos de moi</h5>
                 <p>{user?.about}</p>
             </div>
-            <div className='bg-light info-right p-4 rounded shadow'>
+            <div className='bg-light info-right p-4 rounded shadow mb-4'>
                 <h5 className='fw-bold mb-4'>Autres Détails</h5>
 
                 <h6 className='text-muted'>Nom complet</h6>

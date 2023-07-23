@@ -11,12 +11,13 @@ function ForgotPassword() {
     const [message, setMessage] = useState('')
     const [password, setPassword] = useState('')
     const [repeatPassword, setRepeatPassword] = useState('')
+    const apiUrl = process.env.REACT_APP_API_URL
 
     const handleSubmit = async(e)=>{
         e.preventDefault()
         setShowSpinner(true)
         
-        await axios.post('http://localhost:5000/api/user/password-forgot',{
+        await axios.post(apiUrl+'/api/user/password-forgot',{
             email: email,
             code: code,
             password: password,

@@ -6,11 +6,12 @@ function ProjectCard(props) {
     const [tasks, setTasks] = useState([])
     const [over, setOver] = useState(0)
     const [percent, setPercent] = useState(0)
+    const apiUrl = process.env.REACT_APP_API_URL
     
 
     useEffect(()=>{
         const getTasks = async()=>{
-            await axios.get('http://localhost:5000/api/task/all/'+props.projet?._id, {
+            await axios.get(apiUrl+'/api/task/all/'+props.projet?._id, {
                 headers: {
                     token: localStorage.token
                 }
@@ -36,13 +37,13 @@ function ProjectCard(props) {
     const handleClick = async(e)=>{
         e.preventDefault()
 
-        await axios.delete('http://localhost:5000/api/project/'+e.target.name,{
+        await axios.delete(apiUrl+'/api/project/'+e.target.name,{
             headers: {
                 token: localStorage.token
             }
         })
-        .then(()=>{
-            console.log('Supprimé')
+        .then((response)=>{
+            props.setProjects(response.data.projects)
         })
         .catch((err)=>{
             console.log(err)
@@ -50,7 +51,7 @@ function ProjectCard(props) {
     }
 
   return (
-    <Link className='card-link mt-4 ' key={props.projet?._id}>
+    <Link to={'/dashboard/projets/'+props.projet?._id} className='card-link mt-4 ' key={props.projet?._id}>
         <div className='card-project bg-white p-4 shadow rounded'>
             <div className='d-flex justify-content-between mb-4'>
                 {

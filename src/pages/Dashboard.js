@@ -2,12 +2,12 @@ import React from 'react'
 import NavBar from '../components/NavBar'
 import TopSection from '../components/TopSection'
 
-function Dashboard({children}) {
+function Dashboard({children},props) {
   return (
     <div className='dashboard'>
         <NavBar/>
         <div className='section-right'>
-            <TopSection/>
+            <TopSection />
             <div className='container'>
                 {children}
             </div>
