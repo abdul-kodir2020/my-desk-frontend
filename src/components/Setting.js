@@ -6,7 +6,7 @@ import UpdatePic from './UpdatePic'
 function Setting() {
     const [showSpinner, setShowSpinner] = useState(false)
     const {user,setUser,setTitle, showToast} = useContext(UserContext)
-    const [message, setMessage] = useState('')
+    // const [message, setMessage] = useState('')
     
     const [name, setName] = useState('')
     const [adress, setAdress] = useState('')
@@ -14,8 +14,8 @@ function Setting() {
     const [site, setSite] = useState('')
     const [role, setRole] = useState('')
     const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [repeatPassword, setRepeatPassword] = useState('')
+    // const [password, setPassword] = useState('')
+    // const [repeatPassword, setRepeatPassword] = useState('')
     const apiUrl = process.env.REACT_APP_API_URL
 
   useEffect(()=>{
@@ -26,7 +26,7 @@ function Setting() {
     setAdress(user.adress)
     setSite(user.website)
     setRole(user.role)
-  },[user])
+  },[user,setTitle])
 
   
 
@@ -58,9 +58,6 @@ function Setting() {
     })
   }
 
-  const clickFileInput = () =>{
-    document.getElementById('file').click()
-  }
 
 
 
