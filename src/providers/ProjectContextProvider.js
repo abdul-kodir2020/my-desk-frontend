@@ -16,8 +16,8 @@ function ProjectContextProvider({children}) {
           .then((response)=>{
               setProjects(response.data.projects)
           })
-          .catch((err)=>{
-              console.log(err)
+          .catch((error)=>{
+              console.log(error)
           })
       }
 
