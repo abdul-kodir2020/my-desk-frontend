@@ -71,7 +71,7 @@ nav{
 .section-right{
   max-height: 100%;
   width: calc(100% - 300px);
-  overflow-y: scroll;
+  overflow-y:scroll;
 }
 
 .top-section{

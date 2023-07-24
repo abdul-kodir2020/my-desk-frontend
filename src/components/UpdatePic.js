@@ -73,12 +73,12 @@ function UpdatePic() {
                 </div>
                 <div className="px-2 py-3 border-top d-flex justify-content-between">
                     <div>
-                        <button onClick={clickFileInput} className='btn btn-dark'><i className="bi bi-pencil text-white"></i> Modifier photo de profil</button>
+                        <button onClick={clickFileInput} className='btn btn-dark btn-sm'><i className="bi bi-pencil text-white"></i> Modifier photo de profil</button>
                         <input className="form-control d-none" id='file' type="file" accept="image/*" onChange={handleChange} />
                     </div>
                     {
                         (imageReader)?
-                        <button className='btn btn-success' onClick={saveFile}><i className="bi bi-save2-fill text-white" ></i> Enregistrer</button>
+                        <button className='btn btn-success btn-sm' onClick={saveFile}><i className="bi bi-save2-fill text-white" ></i> Enregistrer</button>
                         :''
                     }
                     

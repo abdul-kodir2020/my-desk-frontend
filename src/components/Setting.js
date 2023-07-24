@@ -62,8 +62,8 @@ function Setting() {
 
 
   return (
-    <div className='pt-5'>
-        <div className='bg-white p-4 rounded shadow border mb-5'>
+    <div className='pt-5 mb-5'>
+        <div className='bg-white p-4 rounded shadow border '>
             
             <div className='d-flex justify-content-between align-items-center flex-wrap gap-3'>
                 <div className='d-flex gap-2 align-items-center'>
