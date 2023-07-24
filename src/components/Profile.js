@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import UserContext from '../contexts/UserContext'
+import { Link } from 'react-router-dom'
 const apiUrl = process.env.REACT_APP_API_URL
 
 function Profile() {
@@ -20,30 +21,30 @@ function Profile() {
                         <p className='m-0 desc'>{user?.role}</p>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-outline-primary" style={{height: 'min-content'}}>Editer</button>
+                    <Link to={'/dashboard/setting'} type="button" className="btn btn-outline-secondary btn-sm" style={{height: 'min-content'}}>Editer</Link>
                 </div>
                 <hr></hr>
 
                 <h5 className='fw-bold'>A propos de moi</h5>
-                <p>{user?.about}</p>
+                <p className='text-muted' style={{fontSize: '0.9rem'}}>{user?.about}</p>
             </div>
             <div className='bg-light info-right p-4 rounded shadow mb-4'>
                 <h5 className='fw-bold mb-4'>Autres Détails</h5>
 
                 <h6 className='text-muted'>Nom complet</h6>
-                <h6 className='fw-bold mb-4'><i class="bi bi-person-fill text-primary "></i> {user?.name}</h6>
+                <h6 className='fw-bold mb-4' style={{fontSize: '1rem'}}><i className="bi bi-person-fill text-primary "></i> {user?.name}</h6>
                 <hr/>
 
                 <h6 className='text-muted'>Email</h6>
-                <h6 className='fw-bold mb-4'><i class="bi bi-envelope-fill text-primary "></i> {user?.email}</h6>
+                <h6 className='fw-bold mb-4' style={{fontSize: '1rem'}}><i className="bi bi-envelope-fill text-primary "></i> {user?.email}</h6>
                 <hr/>
 
                 <h6 className='text-muted'>Adresse</h6>
-                <h6 className='fw-bold mb-4'><i class="bi bi-geo-alt-fill text-primary "></i> {user?.adress}</h6>
+                <h6 className='fw-bold mb-4' style={{fontSize: '1rem'}}><i className="bi bi-geo-alt-fill text-primary "></i> {user?.adress}</h6>
                 <hr/>
 
                 <h6 className='text-muted'>Website</h6>
-                <h6 className='fw-bold mb-4'><i class="bi bi-browser-chrome text-primary "></i> {user?.website}</h6>
+                <h6 className='fw-bold mb-4' style={{fontSize: '1rem'}}><i className="bi bi-browser-chrome text-primary "></i> {user?.website}</h6>
             </div>
         </div>
     </div>

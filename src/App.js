@@ -12,6 +12,7 @@ import Profile from './components/Profile';
 import AddProject from './components/AddProject';
 import OneProject from './components/OneProject';
 import ProjectContextProvider from './providers/ProjectContextProvider';
+import Setting from './components/Setting';
 
 function App() {
   const navigate = useNavigate()
@@ -44,6 +45,7 @@ function App() {
               <Route path='/dashboard/projets/:id' Component={OneProject}></Route>
               <Route path='/dashboard/projets/ajouter' Component={AddProject}></Route>
               <Route path='/dashboard/profile' Component={Profile}></Route>
+              <Route path='/dashboard/setting' Component={Setting}></Route>
             </Routes>
           </Dashboard>
           </ProjectContextProvider>

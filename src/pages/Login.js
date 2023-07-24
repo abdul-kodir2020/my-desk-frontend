@@ -45,19 +45,19 @@ function Login() {
                     <h2 className='text-center mb-5'>Connexion</h2>
                     {
                         (message)?
-                        <div class="alert alert-danger" role="alert">
+                        <div className="alert alert-danger" role="alert">
                             {message}
                         </div>
                         :null
                     }
                     
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" name='email' value={email} onChange={(e)=>setEmail(e.target.value)} required/>
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Email</label>
+                        <input type="email" className="form-control" id="exampleFormControlInput1" name='email' value={email} onChange={(e)=>setEmail(e.target.value)} required/>
                     </div>
                     <div className=''>
-                        <label for="inputPassword5" class="form-label">Mot de passe</label>
-                        <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
+                        <label htmlFor="inputPassword5" className="form-label">Mot de passe</label>
+                        <input type="password" id="inputPassword5" className="form-control" aria-labelledby="passwordHelpBlock" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
                     </div>
                     <div className='mb-3'>
                         <p className='text-center'><Link className='text-dark' to={'/forgot-password'}>Mot de passe oublié ?</Link></p>
@@ -68,14 +68,14 @@ function Login() {
                     {
                         (showSpinner)?
                         <div className='d-flex justify-content-center mb-3'>
-                            <div class="spinner-border" role="status">
-                                <span class="visually-hidden text-center">Loading...</span>
+                            <div className="spinner-border" role="status">
+                                <span className="visually-hidden text-center">Loading...</span>
                             </div>
                         </div>
                         :null
                     }
-                    <div class="col-12 d-flex justify-content-center">
-                        <button class="btn btn-dark" type="submit">Se connecter</button>
+                    <div className="col-12 d-flex justify-content-center">
+                        <button className="btn btn-dark" type="submit">Se connecter</button>
                     </div>
                 </form>
             </div>

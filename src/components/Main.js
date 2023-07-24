@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import UserContext from '../contexts/UserContext'
 import PieChart from './PieChart'
 
+
 function Main() {
   const {projects} = useContext(ProjectsContext)
   const [projectsThree, setProjectsThree] = useState([])
@@ -19,6 +20,9 @@ function Main() {
     });
 
     setTitle('Tableau de bord')
+
+  
+     
   },[projects,setTitle])
 
   return (
@@ -26,7 +30,7 @@ function Main() {
 
         <div className='d-flex dash-feature'>
           <div className='p-3 bg-white border shadow rounded d-flex gap-3 align-items-center '>
-            <i class="bi bi-calendar2 icon-dev rounded"></i>
+            <i className="bi bi-calendar2 icon-dev rounded"></i>
             <div>
               <h6 className='text-muted mb-0'>Projets totals</h6>
               <p className='m-0 fw-bold '>{((projects.length < 10)?'0':'') + projects.length}</p>
@@ -35,7 +39,7 @@ function Main() {
           </div>
 
           <div className='p-3 bg-white border shadow rounded d-flex gap-3 align-items-center '>
-            <i class="bi bi-calendar2-check icon-mobile rounded"></i>
+            <i className="bi bi-calendar2-check icon-mobile rounded"></i>
             <div>
               <h6 className='text-muted mb-0'>Projets terminés</h6>
               <p className='m-0 fw-bold '>{((projectsOver < 10)?'0':'') + projectsOver}</p>
@@ -44,7 +48,7 @@ function Main() {
           </div>
 
           <div className='p-3 bg-white border shadow rounded d-flex gap-3 align-items-center '>
-            <i class="bi bi-folder-check icon-other rounded"></i>
+            <i className="bi bi-folder-check icon-other rounded"></i>
             <div>
               <h6 className='text-muted mb-0'>Fichiers partagés</h6>
               <p className='m-0 fw-bold '>00</p>
@@ -53,7 +57,7 @@ function Main() {
           </div>
 
           <div className='p-3 bg-white border shadow rounded d-flex gap-3 align-items-center '>
-            <i class="bi bi-people-fill icon-design rounded"></i>
+            <i className="bi bi-people-fill icon-design rounded"></i>
             <div>
               <h6 className='text-muted mb-0'>Ma team</h6>
               <p className='m-0 fw-bold '>Softartisan</p>
@@ -70,7 +74,7 @@ function Main() {
             <div className='d-flex justify-content-between align-items-center w-100 chart-container'>
               <div className='d-flex flex-column justify-content-between'>
                 <div className='w-100 d-flex d-lg-block d-md-block justify-content-center gap-3 mb-5'>
-                  <i class="bi bi-pie-chart-fill icon-mobile rounded py-2 d-none d-lg-inline d-md-inline"></i>
+                  <i className="bi bi-pie-chart-fill icon-mobile rounded py-2 d-none d-lg-inline d-md-inline"></i>
                   <h5 className='mt-3 fw-bold'>Pourcentage des projets</h5>
                 </div>
                 <div className='w-100 ms-auto d-flex d-lg-block d-md-block justify-content-around'>
@@ -86,38 +90,38 @@ function Main() {
           <div className='shadow rounded bg-white p-3 feature-list mb-5 mb-lg-0 mb-md-0'>
             <h6 className='fw-bold mb-0'>Projets récents</h6>
             <hr className='mt-2'></hr>
-            <div class="list-group w-100">
+            <div className="list-group w-100">
             {
               (projectsThree.length)?
               projectsThree.map((projet)=>(
                 <Link to={'/dashboard/projets/'+projet?._id} className="list-group-item list-group-item-action d-flex align-items-center gap-2">
                   {
                     (projet?.type === "application web")?
-                    <i class="bi bi-code icon-dev rounded"></i>
+                    <i className="bi bi-code icon-dev rounded"></i>
                     :null
                 }
 
                 {
                     (projet?.type === "application mobile")?
-                    <i class="bi bi-phone icon-mobile rounded"></i>
+                    <i className="bi bi-phone icon-mobile rounded"></i>
                     :null
                 }
 
                 {
                     (projet?.type === "design making")?
-                    <i class="bi bi-vector-pen icon-design rounded"></i>
+                    <i className="bi bi-vector-pen icon-design rounded"></i>
                     :null
                 }
 
                 {
                     (projet?.type === "autre")?
-                    <i class="bi bi-bezier2 icon-other rounded"></i>
+                    <i className="bi bi-bezier2 icon-other rounded"></i>
                     :null
                 }
 
                 <span className='fw-bold'>{projet.name}</span>
 
-                <i class="bi bi-arrow-right-square-fill ms-auto"></i>
+                <i className="bi bi-arrow-right-square-fill ms-auto"></i>
                 </Link>
               ))
               :<p className='text-center fw-bold text-muted mb-0'>Aucun projet</p>
@@ -132,7 +136,6 @@ function Main() {
             
           </div>
         </div>
-        
     </div>
   )
 }

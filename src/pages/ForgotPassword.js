@@ -54,32 +54,32 @@ function ForgotPassword() {
                     <h2 className='text-center mb-5'>Mot de passe Oublié</h2>
                     {
                         (message)?
-                        <div class="alert alert-danger" role="alert">
+                        <div className="alert alert-danger" role="alert">
                             {message}
                         </div>
                         :null
                     }
                     
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email</label>
-                        <input type="email" class="form-control email" id="exampleFormControlInput1" name='email' value={email} onChange={(e)=>setEmail(e.target.value)} required/>
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Email</label>
+                        <input type="email" className="form-control email" id="exampleFormControlInput1" name='email' value={email} onChange={(e)=>setEmail(e.target.value)} required/>
                     </div>
 
                     {
                         (showDiv)?
                         <div>
-                            <div class="mb-3 col-6">
-                                <label for="code" class="form-label">Entrez le code</label>
-                                <input type="text" class="form-control" id="code" name='code' value={code} onChange={(e)=>setCode(e.target.value)} />
+                            <div className="mb-3 col-6">
+                                <label htmlFor="code" className="form-label">Entrez le code</label>
+                                <input type="text" className="form-control" id="code" name='code' value={code} onChange={(e)=>setCode(e.target.value)} />
                             </div>
                             <div className='row'>
                                 <div className='mb-3 col-6'>
-                                    <label for="inputPassword5" class="form-label">Nouveau mot de passe</label>
-                                    <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
+                                    <label htmlFor="inputPassword5" className="form-label">Nouveau mot de passe</label>
+                                    <input type="password" id="inputPassword5" className="form-control" aria-labelledby="passwordHelpBlock" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
                                 </div>
                                 <div className='mb-3 col-6'>
-                                    <label for="inputPassword5" class="form-label">Repetez le mot de passe</label>
-                                    <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock" value={repeatPassword} onChange={(e)=>setRepeatPassword(e.target.value)} required/>
+                                    <label htmlFor="inputPassword5" className="form-label">Repetez le mot de passe</label>
+                                    <input type="password" id="inputPassword5" className="form-control" aria-labelledby="passwordHelpBlock" value={repeatPassword} onChange={(e)=>setRepeatPassword(e.target.value)} required/>
                                 </div>
                             </div>
                         </div>
@@ -89,14 +89,14 @@ function ForgotPassword() {
                     {
                         (showSpinner)?
                         <div className='d-flex justify-content-center mb-3'>
-                            <div class="spinner-border" role="status">
-                                <span class="visually-hidden text-center">Loading...</span>
+                            <div className="spinner-border" role="status">
+                                <span className="visually-hidden text-center">Loading...</span>
                             </div>
                         </div>
                         :null
                     }
-                    <div class="col-12 d-flex justify-content-center">
-                        <button class="btn btn-dark" type="submit">Envoyer</button>
+                    <div className="col-12 d-flex justify-content-center">
+                        <button className="btn btn-dark" type="submit">Envoyer</button>
                     </div>
                     <div className='mb-3 mt-3'>
                         <p className='text-end'><Link className='text-danger' to={'/login'}>Connectez-vous.</Link></p>

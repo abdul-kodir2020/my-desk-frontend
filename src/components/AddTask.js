@@ -38,36 +38,36 @@ function AddTask(props) {
     }
 
   return (
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
+    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered modal-lg">
+            <div className="modal-content">
                 <form onSubmit={handleSubmit}>
-                    <div class="modal-body">
+                    <div className="modal-body">
                         {
                             (message)?
-                            <div class="alert alert-danger" role="alert">
+                            <div className="alert alert-danger" role="alert">
                                 {message}
                             </div>
                             :null
                         }
-                        <div class="mb-3">
-                            <label class="form-label">Titre</label>
-                            <input type="text" class="form-control" value={name} onChange={(e)=>setName(e.target.value)} required/>
+                        <div className="mb-3">
+                            <label className="form-label">Titre</label>
+                            <input type="text" className="form-control" value={name} onChange={(e)=>setName(e.target.value)} required/>
                         </div>
-                        <div class="mb-3">
-                            <label  class="form-label">Description</label>
-                            <textarea class="form-control" rows="3" value={description} onChange={(e)=>setDescription(e.target.value)} required></textarea>
+                        <div className="mb-3">
+                            <label  className="form-label">Description</label>
+                            <textarea className="form-control" rows="3" value={description} onChange={(e)=>setDescription(e.target.value)} required></textarea>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="flexCheckDefault" checked={critical} onChange={()=>setCritical(!critical)}/>
-                            <label class="form-check-label" for="flexCheckDefault">
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" id="flexCheckDefault" checked={critical} onChange={()=>setCritical(!critical)}/>
+                            <label className="form-check-label" htmlFor="flexCheckDefault">
                                 Tâche urgente
                             </label>
                         </div>
                     </div>
-                    <div class="modal-footer border-0">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id='dismiss'>Abandonner</button>
-                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                    <div className="modal-footer border-0">
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" id='dismiss'>Abandonner</button>
+                        <button type="submit" className="btn btn-primary">Ajouter</button>
                     </div>
                 </form>
             </div>

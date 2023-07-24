@@ -13,7 +13,7 @@ function ProjectList() {
   return (
     <>
     <div className='p-3 bg-light border shadow rounded d-flex gap-3 align-items-center' style={{width: 'max-content'}}>
-    <i class="bi bi-calendar2 icon-dev rounded"></i>
+    <i className="bi bi-calendar2 icon-dev rounded"></i>
     <div>
         <h6 className='text-muted mb-0'>Projets totals</h6>
         <p className='m-0 fw-bold '>{((projects.length < 10)?'0':'') + projects.length}</p>
@@ -23,7 +23,7 @@ function ProjectList() {
     <div className=' mb-5 d-flex flex-wrap test'>
         <Link className='card-link mt-4 ' to={'/Dashboard/projets/ajouter'}>
             <div className='card-project bg-white p-4 shadow rounded d-flex justify-content-center align-items-center' style={{minHeight: '330px'}}>
-                <i class="bi bi-plus text-muted" style={{fontSize: '80px'}}></i>
+                <i className="bi bi-plus text-muted" style={{fontSize: '80px'}}></i>
             </div>
         </Link>
         

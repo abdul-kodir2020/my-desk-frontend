@@ -18,7 +18,7 @@ function InputCheck(props) {
 
   return (
     <>
-        <input class="form-check-input" type="checkbox" checked={checked} onChange={handleCheck}/>
+        <input className="form-check-input" type="checkbox" checked={checked} onChange={handleCheck}/>
     </>
   )
 }

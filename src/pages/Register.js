@@ -64,52 +64,52 @@ function Register() {
                     <h2 className='text-center mb-5'>Créer un compte</h2>
                     {
                         (message)?
-                        <div class="alert alert-danger" role="alert">
+                        <div className="alert alert-danger" role="alert">
                             {message}
                         </div>
                         :null
                     }
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nom complet*</label>
-                        <input type="text" class="form-control" id="name" name='name' value={name} onChange={(e)=>setName(e.target.value)} required/>
+                    <div className="mb-3">
+                        <label htmlFor="name" className="form-label">Nom complet*</label>
+                        <input type="text" className="form-control" id="name" name='name' value={name} onChange={(e)=>setName(e.target.value)} required/>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email*</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Email*</label>
+                        <input type="email" className="form-control" id="exampleFormControlInput1" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
                     </div>
                     <div className='row'>
                         <div className='mb-3 col-12 col-md-6 col-lg-6'>
-                            <label for="inputPassword5" class="form-label">Mot de passe*</label>
-                            <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
+                            <label htmlFor="inputPassword5" className="form-label">Mot de passe*</label>
+                            <input type="password" id="inputPassword5" className="form-control" aria-labelledby="passwordHelpBlock" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
                         </div>
                         <div className='mb-3 col-12 col-md-6 col-lg-6'>
-                            <label for="inputPassword5" class="form-label">Repetez le mot de passe*</label>
-                            <input type="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock" value={repeatPassword} onChange={(e)=>setRepeatPassword(e.target.value)} required/>
+                            <label htmlFor="inputPassword5" className="form-label">Repetez le mot de passe*</label>
+                            <input type="password" id="inputPassword5" className="form-control" aria-labelledby="passwordHelpBlock" value={repeatPassword} onChange={(e)=>setRepeatPassword(e.target.value)} required/>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Biographie*</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={about} onChange={(e)=>setAbout(e.target.value)} required></textarea>
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlTextarea1" className="form-label">Biographie*</label>
+                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={about} onChange={(e)=>setAbout(e.target.value)} required></textarea>
                     </div>
                     
-                    <div class="mb-3">
-                        <label for="adress" class="form-label">Adresse*</label>
-                        <input type="text" class="form-control" id="adress" name='adress' value={adress} onChange={(e)=>setAdress(e.target.value)} required/>
+                    <div className="mb-3">
+                        <label htmlFor="adress" className="form-label">Adresse*</label>
+                        <input type="text" className="form-control" id="adress" name='adress' value={adress} onChange={(e)=>setAdress(e.target.value)} required/>
                     </div>
                     <div className='row'>
-                        <div class="mb-3 col-6">
-                            <label for="site" class="form-label">Site web*</label>
-                            <input type="text" class="form-control" id="site" name='site' value={site} onChange={(e)=>setSite(e.target.value)} required/>
+                        <div className="mb-3 col-6">
+                            <label htmlFor="site" className="form-label">Site web*</label>
+                            <input type="text" className="form-control" id="site" name='site' value={site} onChange={(e)=>setSite(e.target.value)} required/>
                         </div>
                         
-                        <div class="mb-3 col-6">
-                            <label for="role" class="form-label">Role*</label>
-                            <input type="text" class="form-control" id="role" name='role' value={role} onChange={(e)=>setRole(e.target.value)} required/>
+                        <div className="mb-3 col-6">
+                            <label htmlFor="role" className="form-label">Role*</label>
+                            <input type="text" className="form-control" id="role" name='role' value={role} onChange={(e)=>setRole(e.target.value)} required/>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="formFileDisabled" class="form-label">Photo de profil</label>
-                        <input class="form-control" type="file" accept="image/*" onChange={handleChange} />
+                    <div className="mb-3">
+                        <label htmlFor="formFileDisabled" className="form-label">Photo de profil</label>
+                        <input className="form-control" type="file" accept="image/*" onChange={handleChange} />
                     </div>
                     
                     <div className='mb-3 mt-3'>
@@ -118,14 +118,14 @@ function Register() {
                     {
                         (showSpinner)?
                         <div className='d-flex justify-content-center mb-3'>
-                            <div class="spinner-border" role="status">
-                                <span class="visually-hidden text-center">Loading...</span>
+                            <div className="spinner-border" role="status">
+                                <span className="visually-hidden text-center">Loading...</span>
                             </div>
                         </div>
                         :null
                     }
-                    <div class="col-12 d-flex justify-content-center">
-                        <button class="btn btn-dark" type="submit">S'inscrire</button>
+                    <div className="col-12 d-flex justify-content-center">
+                        <button className="btn btn-dark" type="submit">S'inscrire</button>
                     </div>
                     
                     

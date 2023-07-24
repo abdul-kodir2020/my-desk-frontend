@@ -14,7 +14,7 @@ function TopSection() {
     <div className='top-section'>
       <div className='container d-flex justify-content-between align-items-center h-100'>
         <div className='d-flex align-items-center gap-2'>
-          <button className='button-menu d-none' onClick={handleClick}><i class="bi bi-list"></i></button>
+          <button className='button-menu d-none' onClick={handleClick}><i className="bi bi-list"></i></button>
           <h5 className='m-0 fw-bold'>{title}</h5>
         </div>
         

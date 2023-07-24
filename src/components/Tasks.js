@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import InputCheck from './InputCheck'
 import AddTask from './AddTask'
 import ProjectsContext from '../contexts/ProjectsContext'
+import UserContext from '../contexts/UserContext'
 
 
 function Tasks(props) {
@@ -14,6 +15,7 @@ function Tasks(props) {
   const [tasksChecked, setTasksChecked] = useState([])
   const [percent, setPercent] = useState(0)
   const {setProjects} = useContext(ProjectsContext)
+  const {showToast} = useContext(UserContext)
   const apiUrl = process.env.REACT_APP_API_URL
 
 
@@ -123,6 +125,7 @@ function Tasks(props) {
     })
     .then(()=>{
       setTasksChecked([])
+      showToast("Tâche supprimé avec succès !")
     })
     .catch((err)=>{
       console.log(err)
@@ -137,7 +140,7 @@ function Tasks(props) {
 
   return (
     <div className='taches'>
-        <h4 className='fw-bold'><i class="bi bi-card-checklist"></i> Tâches</h4>
+        <h4 className='fw-bold'><i className="bi bi-card-checklist"></i> Tâches</h4>
         <p className='text-muted mb-0' style={{fontSize: '15px'}}>{overTasks.length} sur {tasks.length} terminés</p>
         <div className="progress mb-4" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
             <div className="progress-bar" style={{width: `${percent}%`}}></div>
@@ -166,7 +169,7 @@ function Tasks(props) {
                         </div>
                         {
                           (task.critical)?
-                          <span class="badge text-bg-danger">urgent</span>
+                          <span className="badge text-bg-danger">urgent</span>
                           :null
                         }
                         
@@ -195,7 +198,7 @@ function Tasks(props) {
                         </div>
                         {
                           (task.critical)?
-                          <span class="badge text-bg-danger">urgent</span>
+                          <span className="badge text-bg-danger">urgent</span>
                           :null
                         }
                         
@@ -223,7 +226,7 @@ function Tasks(props) {
                         </div>
                         {
                           (task.critical)?
-                          <span class="badge text-bg-danger">urgent</span>
+                          <span className="badge text-bg-danger">urgent</span>
                           :null
                         }
                         
@@ -240,13 +243,13 @@ function Tasks(props) {
           </div>
           {/* les boutons */}
           <div className='task-buttons' style={{height: 'min-content'}}>
-            <button type="button" class="btn btn-light border shadow w-100 text-start mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-plus-circle-dotted"></i> <span>Nouvelle tâche</span></button>
-            <button type="button" class="btn btn-light border shadow w-100 text-start mb-2" id='buttonDelete' onClick={handleDelete}><i class="bi bi-trash"></i> <span>Supprimer</span></button>
+            <button type="button" className="btn btn-light border shadow w-100 text-start mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="bi bi-plus-circle-dotted"></i> <span>Nouvelle tâche</span></button>
+            <button type="button" className="btn btn-light border shadow w-100 text-start mb-2" id='buttonDelete' onClick={handleDelete}><i className="bi bi-trash"></i> <span>Supprimer</span></button>
             {
               (current !== 'over')?
-              <button type="button" class="btn btn-light border shadow w-100 text-start mb-2" id='buttonValider' onClick={handleSubmit}><i class="bi bi-check-circle-fill"></i> <span>Marquer comme terminés</span></button>
+              <button type="button" className="btn btn-light border shadow w-100 text-start mb-2" id='buttonValider' onClick={handleSubmit}><i className="bi bi-check-circle-fill"></i> <span>Marquer comme terminés</span></button>
               :
-              <button type="button" class="btn btn-light border shadow w-100 text-start mb-2" id='buttonValider' onClick={handleSubmit}><i class="bi bi-check-circle-fill"></i> <span>Marquer comme non terminés</span></button>
+              <button type="button" className="btn btn-light border shadow w-100 text-start mb-2" id='buttonValider' onClick={handleSubmit}><i className="bi bi-check-circle-fill"></i> <span>Marquer comme non terminés</span></button>
             }
           </div>
         </div>

@@ -181,6 +181,32 @@ nav{
   border-radius: 50%;
 }
 
+.pic-preference{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+
+
+
+.overlay{
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  border: 0;
+  opacity: 0;
+  transition: 0.2s ease opacity;
+}
+
+.overlay:hover{
+  opacity: 1;
+}
+
 .info-left{
   width: 70%;
   height: min-content;

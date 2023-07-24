@@ -47,7 +47,7 @@ function AddProject() {
 
         {
             (success)?
-            <div class="alert alert-success mb-4" role="alert">
+            <div className="alert alert-success mb-4" role="alert">
                 <span className='fw-bold'>Succes !</span> Projet ajouté avec succès
             </div>
             :null
@@ -55,30 +55,30 @@ function AddProject() {
 
         {
             (error)?
-            <div class="alert alert-danger mb-4" role="alert">
+            <div className="alert alert-danger mb-4" role="alert">
                 <span className='fw-bold'>Oups !</span> {message}
             </div>
             :null
         }
 
-            <div class="row ">
-                <div class="col-12 col-lg-6 mb-4">
-                    <label for="" class="form-label">Titre du projet</label>
-                    <input type="text" class="form-control" value={name} onChange={(e)=>setName(e.target.value)} required/>
+            <div className="row ">
+                <div className="col-12 col-lg-6 mb-4">
+                    <label htmlFor="" className="form-label">Titre du projet</label>
+                    <input type="text" className="form-control" value={name} onChange={(e)=>setName(e.target.value)} required/>
                 </div>
-                <div class="col-12 col-lg-6 mb-4">
-                    <label for="" class="form-label">Type du projet</label>
-                    <select class="form-select" aria-label="Default select example" value={type} onChange={(e)=>setType(e.target.value)}>
-                        <option selected value="Application web">Application web</option>
+                <div className="col-12 col-lg-6 mb-4">
+                    <label htmlFor="" className="form-label">Type du projet</label>
+                    <select className="form-select" aria-label="Default select example" value={type} onChange={(e)=>setType(e.target.value)}>
+                        <option value="Application web">Application web</option>
                         <option value="Application mobile">Application mobile</option>
                         <option value="Design Making">Design Making</option>
                         <option value="Autre">Autre</option>
                     </select>
                 </div>
             </div>
-            <div class="mb-4">
-                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" value={description} onChange={(e)=>setDescription(e.target.value)} required></textarea>
+            <div className="mb-4">
+                <label htmlFor="exampleFormControlTextarea1" className="form-label">Description</label>
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" value={description} onChange={(e)=>setDescription(e.target.value)} required></textarea>
             </div>
             <button type='submit' className='btn btn-primary'>Ajouter</button>
         </form>

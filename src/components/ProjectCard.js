@@ -56,35 +56,35 @@ function ProjectCard(props) {
             <div className='d-flex justify-content-between mb-4'>
                 {
                     (props.projet?.type === "application web")?
-                    <i class="bi bi-code icon-dev rounded"></i>
+                    <i className="bi bi-code icon-dev rounded"></i>
                     :null
                 }
 
                 {
                     (props.projet?.type === "application mobile")?
-                    <i class="bi bi-phone icon-mobile rounded"></i>
+                    <i className="bi bi-phone icon-mobile rounded"></i>
                     :null
                 }
 
                 {
                     (props.projet?.type === "design making")?
-                    <i class="bi bi-vector-pen icon-design rounded"></i>
+                    <i className="bi bi-vector-pen icon-design rounded"></i>
                     :null
                 }
 
                 {
                     (props.projet?.type === "autre")?
-                    <i class="bi bi-bezier2 icon-other rounded"></i>
+                    <i className="bi bi-bezier2 icon-other rounded"></i>
                     :null
                 }
                 
-                <div class="dropdown">
-                    <button class="dots" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-three-dots"></i>
+                <div className="dropdown">
+                    <button className="dots" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i className="bi bi-three-dots"></i>
                     </button>
-                    <ul class="dropdown-menu">
-                        <li><button class="dropdown-item text-danger" name={props.projet?._id} onClick={handleClick}>Supprimer</button></li>
-                        <li><button class="dropdown-item">Voir les détails</button></li>
+                    <ul className="dropdown-menu">
+                        <li><button className="dropdown-item text-danger" name={props.projet?._id} onClick={handleClick}>Supprimer</button></li>
+                        <li><button className="dropdown-item">Voir les détails</button></li>
                     </ul>
                 </div>
             </div>
@@ -93,8 +93,8 @@ function ProjectCard(props) {
             <hr></hr>
             <h6 className='fw-bold' style={{fontSize: '15px'}}>Tâches</h6>
             <p className='text-muted' style={{fontSize: '15px'}}>{over} sur {tasks.length} terminés</p>
-            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar" style={{width: `${percent}%`}}></div>
+            <div className="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div className="progress-bar" style={{width: `${percent}%`}}></div>
             </div>
         </div>
     </Link>

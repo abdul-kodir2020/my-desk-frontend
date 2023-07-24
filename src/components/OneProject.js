@@ -13,7 +13,7 @@ function OneProject() {
     const [editMode, setEditMode] = useState(false)
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
-    const {setTitle} = useContext(UserContext)
+    const {setTitle,showToast} = useContext(UserContext)
     const {setProjects} = useContext(ProjectsContext)
     const apiUrl = process.env.REACT_APP_API_URL
 
@@ -49,6 +49,7 @@ function OneProject() {
         .then((response)=>{
             navigate('/dashboard/projets')
             setProjects(response.data.projects)
+            showToast("Projet supprimé avec succès !")
         })
         .catch((err)=>{
             console.log(err)
@@ -76,6 +77,7 @@ function OneProject() {
         .then((response)=>{
             setProject(response.data.updatedProject)
             setEditMode(false)
+            showToast("Vos informations ont été mises à jour !")
         })
         .catch((err)=>{
             console.log(err);
@@ -89,25 +91,25 @@ function OneProject() {
             <div className='bg-white rounded shadow p-4 info-project' >
                 {
                     (project?.type === "application web")?
-                    <i class="bi bi-code icon-dev rounded"></i>
+                    <i className="bi bi-code icon-dev rounded"></i>
                     :null
                 }
 
                 {
                     (project?.type === "application mobile")?
-                    <i class="bi bi-phone icon-mobile rounded"></i>
+                    <i className="bi bi-phone icon-mobile rounded"></i>
                     :null
                 }
 
                 {
                     (project?.type === "design making")?
-                    <i class="bi bi-vector-pen icon-design rounded"></i>
+                    <i className="bi bi-vector-pen icon-design rounded"></i>
                     :null
                 }
 
                 {
                     (project?.type === "autre")?
-                    <i class="bi bi-bezier2 icon-other rounded"></i>
+                    <i className="bi bi-bezier2 icon-other rounded"></i>
                     :null
                 }
 
@@ -129,7 +131,7 @@ function OneProject() {
 
                 {
                     (editMode)?
-                    <textarea class="form-control bg-light fw-bold shadow" id="exampleFormControlTextarea1" rows="3" value={description} onChange={(e)=>setDescription(e.target.value)}></textarea>
+                    <textarea className="form-control bg-light fw-bold shadow" id="exampleFormControlTextarea1" rows="3" value={description} onChange={(e)=>setDescription(e.target.value)}></textarea>
                     :
                     <p className='text-muted p-3 bg-light rounded fw-bold shadow border'>{project?.description}</p>
 
@@ -153,7 +155,7 @@ function OneProject() {
                 
             </div>
             <div className='bg-white rounded shadow p-4 flex-fill' style={{height: 'min-content'}}>
-                <h4 className='fw-bold m-0'><i class="bi bi-folder"></i> Ressources</h4>
+                <h4 className='fw-bold m-0'><i className="bi bi-folder"></i> Ressources</h4>
                 <p className='text-muted'>Aucun fichier ajouté</p>
             </div>
         </div>
