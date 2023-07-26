@@ -5,6 +5,7 @@ import UpdatePic from './UpdatePic'
 
 function Setting() {
     const [showSpinner, setShowSpinner] = useState(false)
+    const [showSpinnerPassword, setShowSpinnerPassword] = useState(false)
     const {user,setUser,setTitle, showToast} = useContext(UserContext)
     // const [message, setMessage] = useState('')
     
@@ -14,8 +15,9 @@ function Setting() {
     const [site, setSite] = useState('')
     const [role, setRole] = useState('')
     const [email, setEmail] = useState('')
-    // const [password, setPassword] = useState('')
-    // const [repeatPassword, setRepeatPassword] = useState('')
+    const [oldPassword, setOldPassword] = useState('')
+    const [password, setPassword] = useState('')
+    const [repeatPassword, setRepeatPassword] = useState('')
     const apiUrl = process.env.REACT_APP_API_URL
 
   useEffect(()=>{
@@ -58,7 +60,35 @@ function Setting() {
     })
   }
 
+  const handleSubmitPassword = async(e)=>{
+    e.preventDefault()
+    setShowSpinnerPassword(true)
 
+    await axios.post(apiUrl+'/api/user/',{
+      oldPassword: oldPassword,
+      password:password,
+      passwordRepeat: repeatPassword
+    },{
+      headers:{
+        token: localStorage.token
+      }
+    })
+    .then((response)=>{
+      setUser(response.data.user)
+      showToast("Mot de passe modifiée")
+      setShowSpinnerPassword(false)
+      setOldPassword('')
+      setPassword('')
+      setRepeatPassword('')
+    })
+    .catch((err)=>{
+      setShowSpinnerPassword(false)
+      setOldPassword('')
+      setPassword('')
+      setRepeatPassword('')
+      showToast(err.response.data)
+    })
+  }
 
 
   return (
@@ -94,16 +124,7 @@ function Setting() {
                       <input type="email" className="form-control" id="exampleFormControlInput1" value={email} onChange={(e)=>setEmail(e.target.value)} disabled required/>
                   </div>
                 </div>
-                {/* <div className='row'>
-                    <div className='mb-3 col-12 col-md-6 col-lg-6'>
-                        <label htmlFor="inputPassword5" className="form-label">Mot de passe*</label>
-                        <input type="password" id="inputPassword5" className="form-control" aria-labelledby="passwordHelpBlock" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
-                    </div>
-                    <div className='mb-3 col-12 col-md-6 col-lg-6'>
-                        <label htmlFor="inputPassword5" className="form-label">Repetez le mot de passe*</label>
-                        <input type="password" id="inputPassword5" className="form-control" aria-labelledby="passwordHelpBlock" value={repeatPassword} onChange={(e)=>setRepeatPassword(e.target.value)} required/>
-                    </div>
-                </div> */}
+                
                 <div className="mb-3">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label">Biographie*</label>
                     <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={about} onChange={(e)=>setAbout(e.target.value)} required></textarea>
@@ -114,12 +135,12 @@ function Setting() {
                     <input type="text" className="form-control" id="adress" name='adress' value={adress} onChange={(e)=>setAdress(e.target.value)} required/>
                 </div>
                 <div className='row'>
-                    <div className="mb-3 col-6">
+                    <div className="mb-3 col-12 col-lg-6 col-md-6">
                         <label htmlFor="site" className="form-label">Site web*</label>
                         <input type="text" className="form-control" id="site" name='site' value={site} onChange={(e)=>setSite(e.target.value)} required/>
                     </div>
                     
-                    <div className="mb-3 col-6">
+                    <div className="mb-3 col-12 col-lg-6 col-md-6">
                         <label htmlFor="role" className="form-label">Role*</label>
                         <input type="text" className="form-control" id="role" name='role' value={role} onChange={(e)=>setRole(e.target.value)} required/>
                     </div>
@@ -146,6 +167,35 @@ function Setting() {
             <hr></hr>
 
             <h6 className='fw-bold mb-4'>Modifier mon mot de passe</h6>
+            <form onSubmit={handleSubmitPassword}>
+                <div className='mb-3 col-12'>
+                    <label htmlFor="inputPassword5" className="form-label">Ancien mot de passe*</label>
+                    <input type="password" className="form-control" aria-labelledby="passwordHelpBlock" value={oldPassword} onChange={(e)=>setOldPassword(e.target.value)} required/>
+                </div>
+                <div className='row'>
+                    <div className='mb-3 col-12 col-md-6 col-lg-6'>
+                        <label htmlFor="inputPassword5" className="form-label">Nouveau mot de passe*</label>
+                        <input type="password" className="form-control" aria-labelledby="passwordHelpBlock" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
+                    </div>
+                    <div className='mb-3 col-12 col-md-6 col-lg-6'>
+                        <label htmlFor="inputPassword5" className="form-label">Repetez le nouveau mot de passe*</label>
+                        <input type="password" className="form-control" aria-labelledby="passwordHelpBlock" value={repeatPassword} onChange={(e)=>setRepeatPassword(e.target.value)} required/>
+                    </div>
+                </div>
+
+                <div className="col-12 d-flex align-items-center gap-2">
+                    <button className="btn btn-primary btn-sm" type="submit">Valider</button>
+                    {
+                  (showSpinnerPassword)?
+                  <div className=''>
+                      <div className="spinner-border" role="status">
+                          <span className="visually-hidden">Loading...</span>
+                      </div>
+                  </div>
+                  :null
+                }
+                </div>
+            </form>
         </div>
         <UpdatePic/>
     </div>

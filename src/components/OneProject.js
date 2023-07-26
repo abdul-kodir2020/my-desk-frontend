@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import Tasks from './Tasks'
 import UserContext from '../contexts/UserContext'
 import ProjectsContext from '../contexts/ProjectsContext'
+import Files from './Files'
+import AddFile from './AddFile'
 
 function OneProject() {
     const location = useLocation()
@@ -15,6 +17,7 @@ function OneProject() {
     const [description, setDescription] = useState('')
     const {setTitle,showToast} = useContext(UserContext)
     const {setProjects} = useContext(ProjectsContext)
+    const [files, setFiles] = useState([])
     const apiUrl = process.env.REACT_APP_API_URL
 
     useEffect(()=>{
@@ -88,6 +91,7 @@ function OneProject() {
         
         <form onSubmit={handleSubmit}>
         <div className='d-flex flex-wrap gap-3 mb-4'>
+            
             <div className='bg-white rounded shadow p-4 info-project' >
                 {
                     (project?.type === "application web")?
@@ -155,11 +159,13 @@ function OneProject() {
                 
             </div>
             <div className='bg-white rounded shadow p-4 flex-fill' style={{height: 'min-content'}}>
-                <h4 className='fw-bold m-0'><i className="bi bi-folder"></i> Ressources</h4>
-                <p className='text-muted'>Aucun fichier ajouté</p>
+                <h4 className='fw-bold mb-2'><i className="bi bi-folder"></i> Ressources</h4>
+                {/* <p className='text-muted'>Aucun fichier ajouté</p> */}
+                <Files files={files} setFiles={setFiles}/>
             </div>
         </div>
         </form>
+        <AddFile setFiles={setFiles}/>
         <div className='bg-white rounded shadow p-4 mb-4'>
             <Tasks projectId={projectId} setProject={setProject}/>
         </div>

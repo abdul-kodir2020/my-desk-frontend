@@ -65,7 +65,7 @@ function AddTask(props) {
                             </label>
                         </div>
                     </div>
-                    <div className="modal-footer border-0">
+                    <div className="modal-footer border-top">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" id='dismiss'>Abandonner</button>
                         <button type="submit" className="btn btn-primary">Ajouter</button>
                     </div>

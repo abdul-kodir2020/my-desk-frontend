@@ -40,7 +40,6 @@ function UpdatePic() {
           .then((response)=>{
             setUser(response.data.user)
             document.getElementById("btn-close").click()
-            document.getElementById('file').value = ''
             showToast('Photo de profil modifiée')
           })
           .catch((err)=>{
@@ -51,6 +50,7 @@ function UpdatePic() {
     useEffect(()=>{
         document.getElementById("updatePic").addEventListener("hidden.bs.modal", ()=> {
             setImageReader(null)
+            document.getElementById('file').value = ''
         });
     },[])
     

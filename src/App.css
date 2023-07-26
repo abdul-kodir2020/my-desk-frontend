@@ -72,6 +72,7 @@ nav{
   max-height: 100%;
   width: calc(100% - 300px);
   overflow-y:scroll;
+  background: url('images/aaa.png');
 }
 
 .top-section{
@@ -308,6 +309,7 @@ nav{
 
 .info-project{
   width: min-content;
+  height: min-content;
   min-width: 50%;
 }
 
@@ -395,6 +397,12 @@ nav{
 .feature-list{
   height: min-content;
 }
+
+.list-files{
+  max-height: 200px;
+  overflow: scroll;
+}
+
 
 @media(width < 1200px){
   nav{

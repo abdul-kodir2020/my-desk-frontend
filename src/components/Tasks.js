@@ -217,16 +217,16 @@ function Tasks(props) {
                 {
                   (overTasks.length !== 0)?
                   overTasks.map((task)=>(
-                    <div className='d-flex gap-2 mt-3'>
+                    <div className='d-flex gap-2 mt-3 '>
                         <InputCheck tasksChecked={tasksChecked} setTasksChecked={setTasksChecked} idTask={task._id}/>
                       <div className='d-flex w-100 justify-content-between align-items-center'>
                         <div>
-                          <p className='m-0 fw-bold'>{task.name}</p>
+                          <p className='m-0 fw-bold text-muted text-decoration-line-through'>{task.name}</p>
                           <p className='m-0 text-muted' style={{fontSize: '14px'}}>{task.description}</p>
                         </div>
                         {
                           (task.critical)?
-                          <span className="badge text-bg-danger">urgent</span>
+                          <span className="badge text-bg-secondary">urgent</span>
                           :null
                         }
                         
