@@ -38,6 +38,9 @@ function NavBar() {
           <li className={(currentRoute === '/dashboard')?"px-4 active":"px-4"}><Link to={'/dashboard'} onClick={handleClickLink}><i className="bi bi-columns-gap"></i>Tableau de bord <span className="bi bi-caret-right-fill ms-auto"></span></Link></li>
           <li className={(currentRoute === '/dashboard/projets')?"px-4 active":"px-4"}><Link to={'/dashboard/projets'} onClick={handleClickLink}><i className="bi bi-calendar2-range"></i>Projets<span className="bi bi-caret-right-fill ms-auto"></span></Link></li>
           <li className={(currentRoute === '/dashboard/profile')?"px-4 active":"px-4"}><Link to={'/dashboard/profile'} onClick={handleClickLink}><i className="bi bi-person"></i>Mon profil<span className="bi bi-caret-right-fill ms-auto"></span></Link></li>
+
+          {/* <li className={(currentRoute === '/dashboard/teams')?"px-4 active dropdown":"px-4 dropdown"}><Link to={'/dashboard/teams'} onClick={handleClickLink}><i className="bi bi-people"></i>Teams<span className="bi bi-caret-right-fill ms-auto"></span></Link></li> */}
+
           <li className={(currentRoute === '/dashboard/setting')?"px-4 active":"px-4"}><Link to={'/dashboard/setting'} onClick={handleClickLink}><i className="bi bi-gear"></i>Préférences<span className="bi bi-caret-right-fill ms-auto"></span></Link></li>
           <li className='list-item text-danger px-4'><Link className='fw-bold' onClick={(e)=>logout(e)}><i className="bi bi-box-arrow-left text-primary"></i>Déconnexion</Link></li>
           {/* <li className='list-item'><Link to={'/dashboard/taches'}><i className="bi bi-list-task"></i>  Tâches</Link></li> */}

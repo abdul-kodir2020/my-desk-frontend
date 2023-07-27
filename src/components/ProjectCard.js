@@ -51,7 +51,7 @@ function ProjectCard(props) {
     }
 
   return (
-    <Link to={'/dashboard/projets/'+props.projet?._id} className='card-link mt-4 ' key={props.projet?._id}>
+    <Link to={'/dashboard/projets/'+props.projet?._id} className='card-link mt-4 ' key={props.projet?.name}>
         <div className='card-project bg-white p-4 shadow rounded'>
             <div className='d-flex justify-content-between mb-4'>
                 {

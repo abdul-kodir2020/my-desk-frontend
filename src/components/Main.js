@@ -20,7 +20,7 @@ function Main() {
     });
 
     setTitle('Tableau de bord')
-
+    
   
      
   },[projects,setTitle])
@@ -69,7 +69,7 @@ function Main() {
         {/* deuxieme ligne */}
         <div className='d-flex mt-3 feature-2'>
           <div className='shadow rounded p-3 bg-white'>
-            <h6 className='fw-bold mb-0'>Chart</h6>
+            <h6 className='fw-bold mb-0 '>Chart</h6>
             <hr className='mt-2'></hr>
             <div className='d-flex justify-content-between align-items-center w-100 chart-container'>
               <div className='d-flex flex-column justify-content-between'>
@@ -88,13 +88,22 @@ function Main() {
             </div>
           </div>
           <div className='shadow rounded bg-white p-3 feature-list mb-5 mb-lg-0 mb-md-0'>
+            <div className='d-flex justify-content-between align-items-center w-100'>
             <h6 className='fw-bold mb-0'>Projets récents</h6>
+            {
+              
+              (projectsThree.length)?
+              <Link to={'/dashboard/projets'} className='text-warning fw-bold text-decoration-none'>Voir tous</Link>
+              :null
+            }
+            </div>
+            
             <hr className='mt-2'></hr>
             <div className="list-group w-100">
             {
               (projectsThree.length)?
               projectsThree.map((projet)=>(
-                <Link to={'/dashboard/projets/'+projet?._id} className="list-group-item list-group-item-action d-flex align-items-center gap-2">
+                <Link to={'/dashboard/projets/'+projet?._id} className="list-group-item list-group-item-action d-flex align-items-center gap-2" key={projet.name}>
                   {
                     (projet?.type === "application web")?
                     <i className="bi bi-code icon-dev rounded"></i>
@@ -118,18 +127,16 @@ function Main() {
                     <i className="bi bi-bezier2 icon-other rounded"></i>
                     :null
                 }
+                <div className='d-flex flex-column'>
+                  <span className='fw-bold'>{projet.name}</span>
+                  <span className='fw-bold text-muted' style={{fontSize: '13px', marginTop: '-4px'}}>{projet.type}</span>
+                </div>
+                
 
-                <span className='fw-bold'>{projet.name}</span>
-
-                <i className="bi bi-arrow-right-square-fill ms-auto"></i>
+                <i className="bi bi-arrow-right-circle-fill ms-auto text-secondary"></i>
                 </Link>
               ))
               :<p className='text-center fw-bold text-muted mb-0'>Aucun projet</p>
-            }
-            {
-              (projectsThree.length)?
-              <Link to={'/dashboard/projets'} className='text-center mt-2 text-dark'>Voir tous les projets</Link>
-              :null
             }
             </div>
            

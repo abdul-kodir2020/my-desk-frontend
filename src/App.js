@@ -13,6 +13,7 @@ import AddProject from './components/AddProject';
 import OneProject from './components/OneProject';
 import ProjectContextProvider from './providers/ProjectContextProvider';
 import Setting from './components/Setting';
+import Teams from './components/Teams';
 
 function App() {
   const navigate = useNavigate()
@@ -24,33 +25,35 @@ function App() {
   },[currentRoute,navigate])
   return (
     <div className="App">
-      <Routes>
-        <Route path='/login' Component={Login}></Route>
-        <Route path='/forgot-password' Component={ForgotPassword}></Route>
-        <Route path='/register' Component={Register}></Route>
-      </Routes>
+      
+      
 
 
-      {/* Dashboard route */}
       
       {
-        (currentRoute !== '/login' && currentRoute !== '/register' && currentRoute !== '/forgot-password')?
+        (currentRoute === '/login' && currentRoute === '/register' && currentRoute === '/forgot-password')?
+        <Routes>
+          <Route path='/login' Component={Login}></Route>
+          <Route path='/forgot-password' Component={ForgotPassword}></Route>
+          <Route path='/register' Component={Register}></Route>
+        </Routes>
+        :
         <UserContextProvider>
           <ProjectContextProvider>
-          <Dashboard>
-            <Routes>
-              <Route path='/' element={<Navigate to= '/dashboard'/>}></Route>
-              <Route path='/dashboard' Component={Main}></Route>
-              <Route path='/dashboard/projets' Component={Projects}></Route>
-              <Route path='/dashboard/projets/:id' Component={OneProject}></Route>
-              <Route path='/dashboard/projets/ajouter' Component={AddProject}></Route>
-              <Route path='/dashboard/profile' Component={Profile}></Route>
-              <Route path='/dashboard/setting' Component={Setting}></Route>
-            </Routes>
-          </Dashboard>
+            <Dashboard>
+              <Routes>
+                <Route path='/' element={<Navigate to= '/dashboard'/>}></Route>
+                <Route path='/dashboard' Component={Main}></Route>
+                <Route path='/dashboard/projets' Component={Projects}></Route>
+                <Route path='/dashboard/projets/:id' Component={OneProject}></Route>
+                <Route path='/dashboard/projets/ajouter' Component={AddProject}></Route>
+                <Route path='/dashboard/profile' Component={Profile}></Route>
+                <Route path='/dashboard/teams' Component={Teams}></Route>
+                <Route path='/dashboard/setting' Component={Setting}></Route>
+              </Routes>
+            </Dashboard>
           </ProjectContextProvider>
         </UserContextProvider>
-        :null
       }
       
       
