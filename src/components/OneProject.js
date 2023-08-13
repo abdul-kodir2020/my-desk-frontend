@@ -16,7 +16,7 @@ function OneProject() {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const {setTitle,showToast} = useContext(UserContext)
-    const {setProjects} = useContext(ProjectsContext)
+    const {setProjects, projects} = useContext(ProjectsContext)
     const [files, setFiles] = useState([])
     const apiUrl = process.env.REACT_APP_API_URL
 
@@ -50,8 +50,10 @@ function OneProject() {
             }
         })
         .then((response)=>{
+            
+            const projectsNew = projects.filter((project)=>project._id !== projectId)
+            setProjects(projectsNew)
             navigate('/dashboard/projets')
-            setProjects(response.data.projects)
             showToast("Projet supprimé avec succès !")
         })
         .catch((err)=>{

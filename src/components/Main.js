@@ -75,14 +75,13 @@ function Main() {
               <div className='d-flex flex-column justify-content-between'>
                 <div className='w-100 d-flex d-lg-block d-md-block justify-content-center gap-3 mb-5'>
                   <i className="bi bi-pie-chart-fill icon-mobile rounded py-2 d-none d-lg-inline d-md-inline"></i>
-                  <h5 className='mt-3 fw-bold'>Pourcentage des projets</h5>
+                  <h5 className='mt-3 fw-bold'>Projets terminés (%)</h5>
                 </div>
                 <div className='w-100 ms-auto d-flex d-lg-block d-md-block justify-content-around'>
-                  <p className='mb-2 text-muted'><span className='py-1 px-4' style={{backgroundColor: 'rgb(223, 223, 223)'}}></span>&nbsp;Non Terminés</p>
-                  <p className='m-0 text-muted'><span className='py-1 px-4' style={{backgroundColor: 'rgb(247, 208, 137)'}}></span>&nbsp;Terminés </p>
+                  <p className='m-0 text-muted d-flex align-items-center'><span className='rounded-circle d-block' style={{backgroundColor: '#986bff', width:'10px', height: '10px'}}></span>&nbsp;Terminés </p>
                 </div>
               </div>
-              <div style={{width: 200}}>
+              <div style={{width: 180}}>
                 <PieChart/>
               </div>
             </div>

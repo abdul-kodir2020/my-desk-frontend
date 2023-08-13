@@ -24,6 +24,7 @@ function Dashboard({children}) {
                 </div>
               </div>
                 {children}
+                {/* <p className='text-muted text-center mb-3'>© Desk by Abdul Mounirou・All right reserved.</p> */}
             </div>
         </div>
     </div>

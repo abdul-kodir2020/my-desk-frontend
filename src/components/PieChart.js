@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {Pie} from 'react-chartjs-2';
+import {Doughnut} from 'react-chartjs-2';
 // eslint-disable-next-line
-import {Chart} from 'chart.js/auto'
+import {Chart, plugins} from 'chart.js/auto'
 import ProjectsContext from '../contexts/ProjectsContext';
 
 function PieChart() {
@@ -15,20 +16,39 @@ function PieChart() {
         });
     
       },[projects])
+
+      const data = {
+        datasets: [{
+          label: '',
+          data: [((projects.length)?(projectsOver / projects?.length) * 100 : 0),((projects.length)?(100 - (projectsOver / projects?.length) * 100) : 100)],
+          backgroundColor: [
+            '#986bff',
+            'rgb(223, 223, 223)',
+          ],
+        
+          borderWidth: 0,
+          cutout: '70%',
+          hoverOffset: 4
+        }]
+      }
+
+      const textCenter = {
+        id: 'textCenter',
+        beforeDatasetsDraw(chart, args, pluginOptions){
+          const {ctx, data} = chart;
+
+          ctx.save();
+          ctx.font = 'bolder 19px sans-serif';
+          ctx.fillStyle = '#986bff';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(data.datasets[0].data[0].toFixed(0) + '%', chart.getDatasetMeta(0).data[0].x, chart.getDatasetMeta(0).data[0].y)
+        }
+      }
   return (
-    <Pie 
-        data={{
-    
-              datasets: [{
-                label: '',
-                data: [((projects.length)?(projectsOver / projects?.length) * 100 : 0),((projects.length)?(100 - (projectsOver / projects?.length) * 100) : 100)],
-                backgroundColor: [
-                  'rgb(247, 208, 137)',
-                  'rgb(223, 223, 223)',
-                ],
-                hoverOffset: 4
-              }]
-        }}
+    <Doughnut 
+        data={data}
+        plugins={[textCenter]}
     />
   )
 }

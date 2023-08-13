@@ -14,6 +14,7 @@ import OneProject from './components/OneProject';
 import ProjectContextProvider from './providers/ProjectContextProvider';
 import Setting from './components/Setting';
 import Teams from './components/Teams';
+import TeamContextProvider from './providers/TeamContextProvider';
 
 function App() {
   const navigate = useNavigate()
@@ -38,18 +39,20 @@ function App() {
         (currentRoute !== '/login' && currentRoute !== '/register' && currentRoute !== '/forgot-password')?
         <UserContextProvider>
           <ProjectContextProvider>
-          <Dashboard>
-            <Routes>
-              <Route path='/' element={<Navigate to= '/dashboard'/>}></Route>
-              <Route path='/dashboard' Component={Main}></Route>
-              <Route path='/dashboard/projets' Component={Projects}></Route>
-              <Route path='/dashboard/projets/:id' Component={OneProject}></Route>
-              <Route path='/dashboard/projets/ajouter' Component={AddProject}></Route>
-              <Route path='/dashboard/profile' Component={Profile}></Route>
-              <Route path='/dashboard/teams' Component={Teams}></Route>
-              <Route path='/dashboard/setting' Component={Setting}></Route>
-            </Routes>
-          </Dashboard>
+            <TeamContextProvider>
+              <Dashboard>
+                <Routes>
+                  <Route path='/' element={<Navigate to= '/dashboard'/>}></Route>
+                  <Route path='/dashboard' Component={Main}></Route>
+                  <Route path='/dashboard/projets' Component={Projects}></Route>
+                  <Route path='/dashboard/projets/:id' Component={OneProject}></Route>
+                  <Route path='/dashboard/projets/ajouter' Component={AddProject}></Route>
+                  <Route path='/dashboard/profile' Component={Profile}></Route>
+                  <Route path='/dashboard/teams' Component={Teams}></Route>
+                  <Route path='/dashboard/setting' Component={Setting}></Route>
+                </Routes>
+              </Dashboard>
+          </TeamContextProvider>
           </ProjectContextProvider>
         </UserContextProvider>
         :null
