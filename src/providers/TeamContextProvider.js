@@ -17,15 +17,15 @@ function TeamContextProvider({children}) {
                 }
             })
             .then((response)=>{
-               
+                // eslint-disable-next-line
                 const filter = (response.data.teams.filter((team)=>team.adminId_id === user._id))[0]
                 setTeam(filter)
-                console.log(filter);
                 setTeams(response.data.teams)
             })
         }
         getTeams()
-    },[setTeams, setTeam, apiUrl, user._id])
+        // eslint-disable-next-line
+    },[setTeams, setTeam, apiUrl])
 
 
   return (
