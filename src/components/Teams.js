@@ -6,7 +6,7 @@ import TeamContext from '../contexts/TeamContext'
 function Teams() {
     const {setTitle} = useContext(UserContext)
     const [current, setCurrent] = useState('details')
-    const {setTeam, team, teams, setTeams} = useContext(TeamContext)
+    const {setTeam, team} = useContext(TeamContext)
     const apiUrl = process.env.REACT_APP_API_URL
 
 

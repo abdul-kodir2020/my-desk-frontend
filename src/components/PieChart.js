@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import {Pie} from 'react-chartjs-2';
 import {Doughnut} from 'react-chartjs-2';
 // eslint-disable-next-line
 import {Chart, plugins} from 'chart.js/auto'
