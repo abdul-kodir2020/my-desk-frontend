@@ -25,7 +25,7 @@ function TeamContextProvider({children}) {
             })
         }
         getTeams()
-    },[setTeams, setTeam, apiUrl])
+    },[setTeams, setTeam, apiUrl, user._id])
 
 
   return (
